@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>final1</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饒德華 - 藥學專業申請簡介</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A3C5A',    // Deep blue for professionalism
+                        secondary: '#4A90E2',  // Softer blue for contrast
+                        accent: '#00C4CC',     // Vibrant teal for highlights
+                        dark: '#2A2A2A',       // Near-black for text
+                        light: '#F9FAFB',      // Soft light background
+                        darkModeBg: '#1F2A44', // Dark mode background
+                        darkModeText: '#FFFFFF', // Dark mode text (改為白色)
+                    },
+                    fontFamily: {
+                        noto: ['Noto Serif SC', 'serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 12px 28px -4px rgba(0, 0, 0, 0.06), 0 8px 12px -4px rgba(0, 0, 0, 0.04)',
+                        'hover': '0 15px 30px -5px rgba(0, 0, 0, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.03)',
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: translateY(-6px);
+                box-shadow: var(--tw-shadow-hover);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+            .bg-gradient-blue {
+                background: linear-gradient(135deg, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="font-noto bg-light text-dark antialiased transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-primary shadow-md transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white tracking-wide flex items-center">
+                <i class="fa fa-flask text-accent mr-3"></i>
+                <span>我是誰？</span>
+            </a>
+            <div class="hidden md:flex space-x-10">
+                <a href="#home" class="text-white hover:text-accent transition-colors font-medium text-lg">主頁</a>
+                <a href="#about" class="text-white hover:text-accent transition-colors font-medium text-lg">關於我</a>
+                <a href="#achievements" class="text-white hover:text-accent transition-colors font-medium text-lg">成就與經歷</a>
+                <a href="#skills" class="text-white hover:text-accent transition-colors font-medium text-lg">專業技能</a>
+                <a href="#awards" class="text-white hover:text-accent transition-colors font-medium text-lg">獲獎證明</a>
+                <a href="#certificates" class="text-white hover:text-accent transition-colors font-medium text-lg">能力證書</a>
+                <a href="#contact" class="text-white hover:text-accent transition-colors font-medium text-lg">聯繫我</a>
+                <button id="theme-toggle" class="text-white hover:text-accent transition-colors">
+                    <i class="fa fa-moon-o"></i>
+                </button>
+            </div>
+            <button class="md:hidden text-white text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden bg-primary" id="mobileMenu">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">主頁</a>
+                <a href="#about" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">關於我</a>
+                <a href="#achievements" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">成就與經歷</a>
+                <a href="#skills" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">專業技能</a>
+                <a href="#awards" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">獲獎證明</a>
+                <a href="#certificates" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">能力證書</a>
+                <a href="#contact" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">聯繫我</a>
+                <button id="mobile-theme-toggle" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">
+                    <i class="fa fa-moon-o"></i> 切換主題
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[90vh] flex items-center bg-gradient-blue from-primary to-dark overflow-hidden" id="home">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-48 -right-48 w-96 h-96 bg-accent/15 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-48 -left-48 w-96 h-96 bg-secondary/15 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/15 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 z-10">
+            <div class="flex flex-col items-center justify-center animate-fadeIn">
+                <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-white mb-8 text-shadow leading-tight text-center">
+                    饒德華<br>
+                    <span class="text-accent text-[clamp(1.5rem,3vw,2.75rem)]">自幼夢想成為藥劑師</span>
+                </h1>
+                <p class="text-[clamp(1.2rem,2vw,1.6rem)] text-white/90 mb-10 max-w-xl text-center">
+                    來自澳門聖若瑟教區中學第五校，對化學和藥學充滿熱情，立志在大學深造藥學專業，為人類健康事業貢獻力量。
+                </p>
+                <div class="flex flex-wrap gap-6 justify-center">
+                    <a href="#about" class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-10 rounded-full inline-flex items-center transition-all-300 hover-scale shadow-lg">
+                        了解更多 <i class="fa fa-arrow-right ml-3"></i>
+                    </a>
+                    <a href="#contact" class="bg-white text-primary hover:bg-gray-100 transition-all-300 font-bold py-3 px-10 rounded-full inline-flex items-center shadow-lg hover-scale">
+                        聯繫我 <i class="fa fa-envelope ml-3"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#about" aria-label="向下滾動">
+                <i class="fa fa-angle-down text-4xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center">
+        <div class="relative max-w-4xl w-full">
+            <img id="modal-image" src="" alt="放大圖片" class="w-full h-auto rounded-lg">
+            <button id="close-modal" class="absolute top-4 right-4 text-white bg-primary/80 hover:bg-primary rounded-full p-3">
+                <i class="fa fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- About Me -->
+    <section class="py-28 bg-white" id="about">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-18">
+                    <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">關於我的藥學之路</h2>
+                    <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+                    <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
+                        自幼對化學充滿好奇，這份熱情引領我探索藥劑學的奧秘，立志成為一名守護人類健康的藥劑師。
+                    </p>
+                </div>
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-2/5 relative">
+                        <img src="https://imgur.com/ktGY7TU.jpg" alt="饒德華照片" class="rounded-3xl shadow-xl hover-scale w-full max-w-lg mx-auto cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/ktGY7TU.jpg">
+                        <div class="absolute -bottom-8 -right-8 bg-accent text-white p-5 rounded-xl shadow-lg transform rotate-3">
+                            <p class="text-xl font-bold">3+ 年</p>
+                            <p class="text-sm">stem領域探索</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-3/5">
+                        <p class="text-dark/70 mb-6 text-lg leading-relaxed">
+                            我是饒德華，即將從澳門聖若瑟教區中學第五校畢業，對化學和藥學充滿熱情。我自發學習了消旋化反應、親核取代反應、酯水解反應等進階化學概念，這讓我對有機化學有了更深的理解。
+                        </p>
+                        <p class="text-dark/70 mb-8 text-lg leading-relaxed">
+                            我積極參與科學競賽，提升了我的邏輯思維和問題解決能力。作為化學科代表和領袖生，我培養了溝通、領導和組織協調能力。此外，我對音樂充滿熱情，曾學習鋼琴並在國際比賽中獲獎，展現了我在學術之餘的藝術追求與毅力。我深信藥劑師不僅是藥物的配發者，更是藥物療效的守護者，對於人類健康至關重要。
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                        <i class="fa fa-graduation-cap text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-lg">學業表現</h4>
+                                </div>
+                                <p class="text-dark/70">在生物和化學科目中表現突出。</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                        <i class="fa fa-flask text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-lg">科研能力</h4>
+                                </div>
+                                <p class="text-dark/70">參與科技競賽，掌握實驗操作與數據分析。</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                        <i class="fa fa-users text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-lg">領導能力</h4>
+                                </div>
+                                <p class="text-dark/70">擔任化學科代表與領袖生，展現領導與協調能力。</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                        <i class="fa fa-heartbeat text-primary text-xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-lg">服務精神</h4>
+                                </div>
+                                <p class="text-dark/70">在不同的團體中，都追求把自己的任務做得盡善盡美，在力所能及的範圍下積極地幫助別人。</p>
+                            </div>
+                        </div>
+                        <a href="#achievements" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-10 rounded-full inline-flex items-center transition-all-300 hover-scale shadow-lg">
+                            查看我的經歷 <i class="fa fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements and Experiences -->
+    <section class="py-28 bg-gray-50" id="achievements">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-18">
+                <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">成長經歷</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
+                    以下是我在學術與社會服務中的實踐經歷，這些活動增強了我的藥學、邏輯思維以及與別人溝通和合作的能力。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                        <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <div class="absolute top-4 left-4 bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium">
+                            班級服務
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">鋼琴學習🎹</h3>
+                        <p class="text-dark/70 mb-4">
+                            從高中開始，我便投入鋼琴學習，數年來持續精進技巧，不僅培養了音樂素養，也鍛鍊了我的耐心與專注力。。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2023-2026年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-graduation-cap text-primary mr-2"></i> 琴藝坊鋼琴學習中心
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                        <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <div class="absolute top-4 left-4 bg-accent text-white px-4 py-1 rounded-full text-sm font-medium">
+                            學生組織
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">學生組織工作</h3>
+                        <p class="text-dark/70 mb-4">
+                            參與明愛慈善園遊會的義務工作，以及協助舉辦校內活動。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2026年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-users text-secondary mr-2"></i> 學生組織
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                       <img src="https://imgur.com/3WGHTPL.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/3WGHTPL.jpg">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                            科學競賽
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">澳門科學比賽</h3>
+                        <p class="text-dark/70 mb-4">
+                            積極參與澳門Stem的比賽
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2021-2026年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-flask text-accent mr-2"></i> 科學競賽
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                            社區服務
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">滅罪小先鋒社區服務</h3>
+                        <p class="text-dark/70 mb-4">
+                            參與「滅罪小先鋒」計劃;擔任第13屆領袖學員，組織禁毒與犯罪預防活動。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2026年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-users text-secondary mr-2"></i> 社區服務
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <div class="absolute top-4 left-4 bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium">
+                            實習經驗
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">義工活動</h3>
+                        <p class="text-dark/70 mb-4">
+                            積極參與校內或校外的義工活動，如賣旗籌款以及回收膠樽等義工活動。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2021-2026年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-heartbeat text-accent mr-2"></i> 志願服務
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                            學術領導
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">化學科代表</h3>
+                        <p class="text-dark/70 mb-4">
+                            擔任化學科代表，協助同學解答學術問題，提升溝通與領導能力。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2023-2025年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-graduation-cap text-primary mr-2"></i> 聖若瑟教區中學第五校
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                       <img src="https://imgur.com/R6odHJT.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/R6odHJT.jpg">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                            領導力
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">領袖生</h3>
+                        <p class="text-dark/70 mb-4">
+                            作為領袖生，組織校內活動，培養組織協調與團隊合作能力。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2023-2026年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-users text-secondary mr-2"></i> 學生組織
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
+                    <div class="relative">
+                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                            競賽
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">WRO比賽準備班成員</h3>
+                        <p class="text-dark/70 mb-4">
+                            參與WRO比賽準備班，為國際機械人競賽進行訓練與準備。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2026年
+                            <span class="mx-2">•</span>
+                            <i class="fa fa-trophy text-accent mr-2"></i> 競賽準備
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards and Certificates -->
+    <section class="py-28 bg-white" id="awards">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-18">
+                <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">獲獎證明</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
+                    以下是我在競賽與服務中獲得的獎項，展現了我的努力與成果。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">2024/2025學年澳門青少年綜合機械人科普活動選拔大賽—重心二足機械人短跑(中學組)</h3>
+                        <p class="text-dark/60 mb-3">冠軍</p>
+                        <p class="text-dark/70 text-sm">
+                            在重心二足機械人短跑比賽中獲得中學組冠軍。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2025
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/9Yczgbl.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/9Yczgbl.jpg" >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">2024 ROBOFEST 機械人大賽澳門區選拔賽—BottleSumo機械人相撲比賽 高級C組</h3>
+                        <p class="text-dark/60 mb-3">金獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在BottleSumo機械人相撲比賽高級C組中獲得金獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2025
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/ZfG3V81.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/ZfG3V81.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">2023世界機器人大會青少年機器人設計與資訊素養競賽-資訊素養類競賽-雪山挑戰賽</h3>
+                        <p class="text-dark/60 mb-3">二等獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在雪山挑戰賽獲得二等獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2023年
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/7BFo4z3.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/7BFo4z3.jpg" >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">2021~2022全國青少年電子信息智能創新大賽智能機械人類-無人機競技障礙賽</h3>
+                        <p class="text-dark/60 mb-3">二等獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在無人機競技障礙賽中獲得二等獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2021-2022年
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/GrU8O3X.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/GrU8O3X.jpg" >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">穗港澳青少年科技交流活動澳門區未來太空車</h3>
+                        <p class="text-dark/60 mb-3">三等獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在未來太空車比賽中獲得三等獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2025
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/KY3M2Dk.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">2024穗港澳青少年科技交流活動（澳門預備賽）—綠建未來中學組</h3>
+                        <p class="text-dark/60 mb-3">優秀獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在綠建未來中學組比賽中獲得優秀獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024年
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/vqY7vKt.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/vqY7vKt.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">未來智能學生奧林匹克比賽及評估（FISO）化學項目</h3>
+                        <p class="text-dark/60 mb-3">銅獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在FISO化學項目中獲得銅獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2025
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/vFnIAds.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/vFnIAds.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">未來智能學生奧林匹克比賽及評估（FISO）科學項目</h3>
+                        <p class="text-dark/60 mb-3">銅獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在FISO科學項目中獲得銅獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2025
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/U95CRtf.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/U95CRtf.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">未來智能學生奧林匹克比賽及評估（FISO）英文項目</h3>
+                        <p class="text-dark/60 mb-3">銀獎</p>
+                        <p class="text-dark/70 text-sm">
+                            在FISO英文項目中獲得銀獎。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2025
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/KY3M2Dk.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">第12屆滅罪小先鋒40優學員</h3>
+                        <p class="text-dark/60 mb-3">40優學員</p>
+                        <p class="text-dark/70 text-sm">
+                            在第12屆滅罪小先鋒計劃中表現優異，獲評40優學員。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2024-2025
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/KY3M2Dk.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">第13屆滅罪小先鋒領袖學員</h3>
+                        <p class="text-dark/60 mb-3">領袖證書</p>
+                        <p class="text-dark/70 text-sm">
+                            在第13屆滅罪小先鋒計劃中擔任領袖學員，獲得領袖證書。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2025-2026
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills and Interests -->
+    <section class="py-28 bg-gray-50" id="skills">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-18">
+                <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">語言能力與興趣</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
+                    我對藥學與化學的交叉領域充滿熱情，致力於提升專業技能。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center">
+                        <i class="fa fa-language text-accent mr-3"></i> 語言能力
+                    </h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">粵語</span>
+                                <span>母語水平</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">英語</span>
+                                <span>流利</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">普通話</span>
+                                <span>良好</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">葡萄牙語</span>
+                                <span>基礎</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center">
+                        <i class="fa fa-heart text-accent mr-3"></i> 學習興趣
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm hover-scale dark:bg-gray-800">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-primary/10 p-3 rounded-full mr-3">
+                                    <i class="fa fa-flask text-primary"></i>
+                                </div>
+                                <h4 class="font-bold">藥物化學</h4>
+                            </div>
+                            <p class="text-dark/70 text-sm dark:text-darkModeText">
+                                關注藥物結構與性質的研究。
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm hover-scale dark:bg-gray-800">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-primary/10 p-3 rounded-full mr-3">
+                                    <i class="fa fa-heartbeat text-primary"></i>
+                                </div>
+                                <h4 class="font-bold">藥理學</h4>
+                            </div>
+                            <p class="text-dark/70 text-sm dark:text-darkModeText">
+                                探索藥物在人體內的作用機制。
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm hover-scale dark:bg-gray-800">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-primary/10 p-3 rounded-full mr-3">
+                                    <i class="fa fa-pills text-primary"></i>
+                                </div>
+                                <h4 class="font-bold">藥物分析</h4>
+                            </div>
+                            <p class="text-dark/70 text-sm dark:text-darkModeText">
+                                學習藥物質量控制與分析方法。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ability Certificates -->
+    <section class="py-28 bg-gray-50" id="certificates">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-18">
+                <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">能力證書</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
+                    以下是我獲得的專業技能證書，展示了我的能力和專業素養。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/OitHiul.jpg" alt="MOS Excel 2019" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/OitHiul.jpg" >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Microsoft Office Specialist Excel 2019</h3>
+                        <p class="text-dark/60 mb-3">認證證書</p>
+                        <p class="text-dark/70 text-sm">
+                            通過Microsoft Office Specialist Excel 2019認證，展現了在數據分析與處理方面的專業技能。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2025年
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
+                    <div class="relative">
+                        <img src="https://imgur.com/6JCGKIn.jpg" alt="MOS PowerPoint 2019" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/6JCGKIn.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Microsoft Office Specialist PowerPoint 2019</h3>
+                        <p class="text-dark/60 mb-3">認證證書</p>
+                        <p class="text-dark/70 text-sm">
+                            通過Microsoft Office Specialist PowerPoint 2019認證，展現了在演示文稿設計與製作方面的專業技能。
+                        </p>
+                        <div class="flex items-center text-sm text-dark/60">
+                            <i class="fa fa-calendar mr-2"></i> 2025年
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="py-28 bg-white" id="contact">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-18">
+                <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">聯繫我</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
+                    我是一名對藥學充滿熱情的學生，歡迎與我聯繫，探討學術、研究或合作機會。
+                </p>
+            </div>
+            <div class="flex flex-col items-center space-y-6 max-w-md mx-auto">
+                <div class="flex items-center space-x-3">
+                    <i class="fa fa-envelope text-accent text-xl"></i>
+                    <span class="text-dark/70 text-lg">電子郵件: <a href="mailto:liming@example.com" class="text-primary hover:underline">liming@example.com</a></span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa fa-linkedin text-accent text-xl"></i>
+                    <span class="text-dark/70 text-lg">LinkedIn: <a href="https://www.linkedin.com/in/liming" target="_blank" class="text-primary hover:underline">linkedin.com/in/liming</a></span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa fa-phone text-accent text-xl"></i>
+                    <span class="text-dark/70 text-lg">電話: <a href="tel:+85312345678" class="text-primary hover:underline">+853 1234 5678</a></span>
+                </div>
+                <div class="text-center">
+                    <p class="text-dark/70 text-lg">所在地: 澳門</p>
+                    <p class="text-dark/70 text-lg">職業: 澳門聖若瑟教區中學第五校學生，藥學專業申請者</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg hover:bg-primary/90 transition-all-300 hidden">
+        <i class="fa fa-arrow-up text-xl"></i>
+    </button>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Image Modal
+        document.querySelectorAll('[data-modal-target="image-modal"]').forEach(img => {
+            img.addEventListener('click', () => {
+                const modal = document.getElementById('image-modal');
+                const modalImg = document.getElementById('modal-image');
+                modalImg.src = img.dataset.imageSrc;
+                modal.classList.remove('hidden');
+            });
+        });
+
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('image-modal').classList.add('hidden');
+        });
+
+        // Dark Mode Toggle
+        const toggleTheme = () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            const icon = document.querySelector('#theme-toggle i');
+            icon.classList.toggle('fa-moon-o', !isDark);
+            icon.classList.toggle('fa-sun-o', isDark);
+            const mobileIcon = document.querySelector('#mobile-theme-toggle i');
+            mobileIcon.classList.toggle('fa-moon-o', !isDark);
+            mobileIcon.classList.toggle('fa-sun-o', isDark);
+        };
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            document.querySelector('#theme-toggle i').classList.replace('fa-moon-o', 'fa-sun-o');
+            document.querySelector('#mobile-theme-toggle i').classList.replace('fa-moon-o', 'fa-sun-o');
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('hidden');
+            } else {
+                backToTop.classList.add('hidden');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
