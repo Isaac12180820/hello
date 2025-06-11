@@ -28,7 +28,7 @@
                     },
                     boxShadow: {
                         'card': '0 12px 28px -4px rgba(0, 0, 0, 0.06), 0 8px 12px -4px rgba(0, 0, 0, 0.04)',
-                        'hover': '0 15px 30px -5px rgba(0, 0, 0, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.03)',
+                        'hover': '0 15px 30px -5px rgba(0, 0, 0, 0.08), 0 10px 15px -?a5px rgba(0, 0, 0, 0.03)',
                     },
                     spacing: {
                         '18': '4.5rem',
@@ -96,6 +96,10 @@
             }
             .animate-fadeInUp {
                 animation: fadeInUp 0.6s ease-out forwards;
+            }
+            .dark .about-card {
+                background-color: #2D3748;
+                color: #E2E8F0;
             }
         }
     </style>
@@ -213,41 +217,41 @@
                             我積極參與科學競賽，提升了我的邏輯思維和問題解決能力。作為化學科代表和領袖生，我培養了溝通、領導和組織協調能力。此外，我對音樂充滿熱情，曾學習鋼琴並在國際比賽中獲獎，展現了我在學術之餘的藝術追求與毅力。我深信藥劑師不僅是藥物的配發者，更是藥物療效的守護者，對於人類健康至關重要。
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300 about-card">
                                 <div class="flex items-center mb-4">
                                     <div class="bg-primary/10 p-3 rounded-full mr-4">
                                         <i class="fa fa-graduation-cap text-primary text-xl"></i>
                                     </div>
                                     <h4 class="font-bold text-lg">學業表現</h4>
                                 </div>
-                                <p class="text-dark/70">在生物和化學科目中表現突出。</p>
+                                <p class="text-dark/70">熱衷於探索生物與化學的奧秘，享受解開科學難題的樂趣。</p>
                             </div>
-                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300 about-card">
                                 <div class="flex items-center mb-4">
                                     <div class="bg-primary/10 p-3 rounded-full mr-4">
                                         <i class="fa fa-flask text-primary text-xl"></i>
                                     </div>
                                     <h4 class="font-bold text-lg">科研能力</h4>
                                 </div>
-                                <p class="text-dark/70">參與科技競賽，掌握實驗操作與數據分析。</p>
+                                <p class="text-dark/70">喜歡動手實驗，發現科學背後的規律與驚喜。</p>
                             </div>
-                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300 about-card">
                                 <div class="flex items-center mb-4">
                                     <div class="bg-primary/10 p-3 rounded-full mr-4">
                                         <i class="fa fa-users text-primary text-xl"></i>
                                     </div>
                                     <h4 class="font-bold text-lg">領導能力</h4>
                                 </div>
-                                <p class="text-dark/70">擔任化學科代表與領袖生，展現領導與協調能力。</p>
+                                <p class="text-dark/70">樂於帶領團隊探索知識，激發大家的學習熱情。</p>
                             </div>
-                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300">
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all-300 about-card">
                                 <div class="flex items-center mb-4">
                                     <div class="bg-primary/10 p-3 rounded-full mr-4">
                                         <i class="fa fa-heartbeat text-primary text-xl"></i>
                                     </div>
                                     <h4 class="font-bold text-lg">服務精神</h4>
                                 </div>
-                                <p class="text-dark/70">在不同的團體中，都追求把自己的任務做得盡善盡美，在力所能及的範圍下積極地幫助別人。</p>
+                                <p class="text-dark/70">熱心參與活動，用科學知識幫助身邊的人。</p>
                             </div>
                         </div>
                         <a href="#achievements" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-10 rounded-full inline-flex items-center transition-all-300 hover-scale shadow-lg">
@@ -547,7 +551,7 @@
                         <img src="https://imgur.com/vFnIAds.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/vFnIAds.jpg">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">未來智能學生奧林匹克比賽及評评估（FISO）科學項目</h3>
+                        <h3 class="text-xl font-bold text-dark mb-2">未來智能學生奧林匹克比賽及評估（FISO）科學項目</h3>
                         <p class="text-dark/60 mb-3">銅獎</p>
                         <p class="text-dark/70 text-sm">
                             在FISO科學項目中獲得銅獎。
@@ -710,7 +714,7 @@
                         <i class="fa fa-heart text-accent mr-3"></i> 學習興趣
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div class="learning-card p-4 rounded-2xl shadow-sm hover-scale">
+                        <div class="learning-card p-6 rounded-2xl shadow-sm hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="learning-icon-bg p-3 rounded-full mr-3">
                                     <i class="fa fa-flask learning-icon"></i>
@@ -721,7 +725,7 @@
                                 探索藥物的神奇世界，揭開它們背後的化學秘密。
                             </p>
                         </div>
-                        <div class="learning-card p-4 rounded-2xl shadow-sm hover-scale">
+                        <div class="learning-card p-6 rounded-2xl shadow-sm hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="learning-icon-bg p-3 rounded-full mr-3">
                                     <i class="fa fa-heartbeat learning-icon"></i>
@@ -732,7 +736,7 @@
                                 研究藥物如何在人體內發揮作用，幫助人們戰勝疾病。
                             </p>
                         </div>
-                        <div class="learning-card p-4 rounded-2xl shadow-sm hover-scale">
+                        <div class="learning-card p-6 rounded-2xl shadow-sm hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="learning-icon-bg p-3 rounded-full mr-3">
                                     <i class="fa fa-balance-scale learning-icon"></i>
