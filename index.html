@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>final1</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="zh-CN" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -68,10 +58,52 @@
             .bg-gradient-blue {
                 background: linear-gradient(135deg, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
             }
+            .learning-card {
+                background-color: #F0F9FF;
+                color: #1A202C;
+            }
+            .dark .learning-card {
+                background-color: #2D3748;
+                color: #E2E8F0;
+            }
+            .learning-icon-bg {
+                background-color: #DBEAFE;
+            }
+            .dark .learning-icon-bg {
+                background-color: #4A5568;
+            }
+            .learning-icon {
+                color: #3182CE;
+            }
+            .progress-bar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 4px;
+                background-color: #00C4CC;
+                z-index: 100;
+                width: 0%;
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .animate-fadeInUp {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
         }
     </style>
 </head>
 <body class="font-noto bg-light text-dark antialiased transition-colors duration-300">
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-primary shadow-md transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-5 flex justify-between items-center">
@@ -83,9 +115,9 @@
                 <a href="#home" class="text-white hover:text-accent transition-colors font-medium text-lg">主頁</a>
                 <a href="#about" class="text-white hover:text-accent transition-colors font-medium text-lg">關於我</a>
                 <a href="#achievements" class="text-white hover:text-accent transition-colors font-medium text-lg">成就與經歷</a>
-                <a href="#skills" class="text-white hover:text-accent transition-colors font-medium text-lg">專業技能</a>
                 <a href="#awards" class="text-white hover:text-accent transition-colors font-medium text-lg">獲獎證明</a>
                 <a href="#certificates" class="text-white hover:text-accent transition-colors font-medium text-lg">能力證書</a>
+                <a href="#skills" class="text-white hover:text-accent transition-colors font-medium text-lg">專業技能</a>
                 <a href="#contact" class="text-white hover:text-accent transition-colors font-medium text-lg">聯繫我</a>
                 <button id="theme-toggle" class="text-white hover:text-accent transition-colors">
                     <i class="fa fa-moon-o"></i>
@@ -100,9 +132,9 @@
                 <a href="#home" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">主頁</a>
                 <a href="#about" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">關於我</a>
                 <a href="#achievements" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">成就與經歷</a>
-                <a href="#skills" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">專業技能</a>
                 <a href="#awards" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">獲獎證明</a>
                 <a href="#certificates" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">能力證書</a>
+                <a href="#skills" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">專業技能</a>
                 <a href="#contact" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">聯繫我</a>
                 <button id="mobile-theme-toggle" class="text-white hover:text-accent transition-colors py-2 font-medium text-lg">
                     <i class="fa fa-moon-o"></i> 切換主題
@@ -119,7 +151,7 @@
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/15 rounded-full blur-3xl"></div>
         </div>
         <div class="container mx-auto px-6 z-10">
-            <div class="flex flex-col items-center justify-center animate-fadeIn">
+            <div class="flex flex-col items-center justify-center animate-fadeInUp">
                 <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-white mb-8 text-shadow leading-tight text-center">
                     饒德華<br>
                     <span class="text-accent text-[clamp(1.5rem,3vw,2.75rem)]">自幼夢想成為藥劑師</span>
@@ -155,7 +187,7 @@
     </div>
 
     <!-- About Me -->
-    <section class="py-28 bg-white" id="about">
+    <section class="py-28 bg-white animate-fadeInUp" id="about">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-18">
@@ -228,7 +260,7 @@
     </section>
 
     <!-- Achievements and Experiences -->
-    <section class="py-28 bg-gray-50" id="achievements">
+    <section class="py-28 bg-gray-50 animate-fadeInUp" id="achievements">
         <div class="container mx-auto px-6">
             <div class="text-center mb-18">
                 <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">成長經歷</h2>
@@ -240,7 +272,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
                     <div class="relative">
-                        <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <img src="https://imgur.com/KY3M2Dk.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
                         <div class="absolute top-4 left-4 bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium">
                             班級服務
                         </div>
@@ -248,7 +280,7 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-dark mb-3">鋼琴學習🎹</h3>
                         <p class="text-dark/70 mb-4">
-                            從高中開始，我便投入鋼琴學習，數年來持續精進技巧，不僅培養了音樂素養，也鍛鍊了我的耐心與專注力。。
+                            從高中開始，我便投入鋼琴學習，數年來持續精進技巧，不僅培養了音樂素養，也鍛鍊了我的耐心與專注力。
                         </p>
                         <div class="flex items-center text-sm text-dark/60">
                             <i class="fa fa-calendar mr-2"></i> 2023-2026年
@@ -259,7 +291,7 @@
                 </div>
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
                     <div class="relative">
-                        <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <img src="https://imgur.com/KY3M2Dk.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
                         <div class="absolute top-4 left-4 bg-accent text-white px-4 py-1 rounded-full text-sm font-medium">
                             學生組織
                         </div>
@@ -297,7 +329,7 @@
                 </div>
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
                     <div class="relative">
-                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                       <img src="https://imgur.com/KY3M2Dk.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
                         <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
                             社區服務
                         </div>
@@ -316,7 +348,7 @@
                 </div>
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
                     <div class="relative">
-                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                       <img src="https://imgur.com/KY3M2Dk.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
                         <div class="absolute top-4 left-4 bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium">
                             實習經驗
                         </div>
@@ -335,7 +367,7 @@
                 </div>
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
                     <div class="relative">
-                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                       <img src="https://imgur.com/KY3M2Dk.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
                         <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
                             學術領導
                         </div>
@@ -354,7 +386,7 @@
                 </div>
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
                     <div class="relative">
-                       <img src="https://imgur.com/R6odHJT.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/R6odHJT.jpg">
+                       <img src="https://imgur.com/R6odHJT.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/R6odHJT.jpg">
                         <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
                             領導力
                         </div>
@@ -373,7 +405,7 @@
                 </div>
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale">
                     <div class="relative">
-                       <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                       <img src="https://imgur.com/KY3M2Dk.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
                         <div class="absolute top-4 left-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
                             競賽
                         </div>
@@ -395,7 +427,7 @@
     </section>
 
     <!-- Awards and Certificates -->
-    <section class="py-28 bg-white" id="awards">
+    <section class="py-28 bg-white animate-fadeInUp" id="awards">
         <div class="container mx-auto px-6">
             <div class="text-center mb-18">
                 <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">獲獎證明</h2>
@@ -407,7 +439,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <div class="bg-white rounded-2xl overflow-hidden shadow-card hover-scale border border-gray-100">
                     <div class="relative">
-                        <img src="https://imgur.com/KY3M2Dk.jpg"alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
+                        <img src="https://imgur.com/KY3M2Dk.jpg" alt="學生會工作" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/KY3M2Dk.jpg">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-dark mb-2">2024/2025學年澳門青少年綜合機械人科普活動選拔大賽—重心二足機械人短跑(中學組)</h3>
@@ -515,7 +547,7 @@
                         <img src="https://imgur.com/vFnIAds.jpg" alt="證書圖片" class="w-full h-64 object-cover cursor-pointer" data-modal-target="image-modal" data-image-src="https://imgur.com/vFnIAds.jpg">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">未來智能學生奧林匹克比賽及評估（FISO）科學項目</h3>
+                        <h3 class="text-xl font-bold text-dark mb-2">未來智能學生奧林匹克比賽及評评估（FISO）科學項目</h3>
                         <p class="text-dark/60 mb-3">銅獎</p>
                         <p class="text-dark/70 text-sm">
                             在FISO科學項目中獲得銅獎。
@@ -574,105 +606,8 @@
         </div>
     </section>
 
-    <!-- Skills and Interests -->
-    <section class="py-28 bg-gray-50" id="skills">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-18">
-                <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">語言能力與興趣</h2>
-                <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
-                <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
-                    我對藥學與化學的交叉領域充滿熱情，致力於提升專業技能。
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center">
-                        <i class="fa fa-language text-accent mr-3"></i> 語言能力
-                    </h3>
-                    <div class="space-y-8">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">粵語</span>
-                                <span>母語水平</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
-                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">英語</span>
-                                <span>流利</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
-                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">普通話</span>
-                                <span>良好</span></div>
-                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
-                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">葡萄牙語</span>
-                                <span>基礎</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
-                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 40%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center">
-                        <i class="fa fa-heart text-accent mr-3"></i> 學習興趣
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div class="bg-white p-6 rounded-2xl shadow-sm hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-primary/10 p-3 rounded-full mr-3">
-                                    <i class="fa fa-flask text-primary"></i>
-                                </div>
-                                <h4 class="font-bold">藥物化學</h4>
-                            </div>
-                            <p class="text-dark/70 text-sm dark:text-darkModeText">
-                                關注藥物結構與性質的研究。
-                            </p>
-                        </div>
-                        <div class="bg-white p-6 rounded-2xl shadow-sm hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-primary/10 p-3 rounded-full mr-3">
-                                    <i class="fa fa-heartbeat text-primary"></i>
-                                </div>
-                                <h4 class="font-bold">藥理學</h4>
-                            </div>
-                            <p class="text-dark/70 text-sm dark:text-darkModeText">
-                                探索藥物在人體內的作用機制。
-                            </p>
-                        </div>
-                        <div class="bg-white p-6 rounded-2xl shadow-sm hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-primary/10 p-3 rounded-full mr-3">
-                                    <i class="fa fa-pills text-primary"></i>
-                                </div>
-                                <h4 class="font-bold">藥物分析</h4>
-                            </div>
-                            <p class="text-dark/70 text-sm dark:text-darkModeText">
-                                學習藥物質量控制與分析方法。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Ability Certificates -->
-    <section class="py-28 bg-gray-50" id="certificates">
+    <section class="py-28 bg-gray-50 animate-fadeInUp" id="certificates">
         <div class="container mx-auto px-6">
             <div class="text-center mb-18">
                 <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">能力證書</h2>
@@ -716,8 +651,106 @@
         </div>
     </section>
 
+    <!-- Skills and Interests -->
+    <section class="py-28 bg-white animate-fadeInUp" id="skills">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-18">
+                <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">語言能力與興趣</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+                <p class="text-dark/80 text-lg max-w-3xl mx-auto leading-relaxed">
+                    我對藥學與化學的交叉領域充滿熱情，致力於提升專業技能。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center">
+                        <i class="fa fa-language text-accent mr-3"></i> 語言能力
+                    </h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">粵語</span>
+                                <span>母語水平</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">英語</span>
+                                <span>流利</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">普通話</span>
+                                <span>良好</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">葡萄牙語</span>
+                                <span>基礎</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600">
+                                <div class="bg-[#007bff] h-3 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center">
+                        <i class="fa fa-heart text-accent mr-3"></i> 學習興趣
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="learning-card p-4 rounded-2xl shadow-sm hover-scale">
+                            <div class="flex items-center mb-4">
+                                <div class="learning-icon-bg p-3 rounded-full mr-3">
+                                    <i class="fa fa-flask learning-icon"></i>
+                                </div>
+                                <h4 class="font-bold">藥物化學</h4>
+                            </div>
+                            <p class="text-sm">
+                                探索藥物的神奇世界，揭開它們背後的化學秘密。
+                            </p>
+                        </div>
+                        <div class="learning-card p-4 rounded-2xl shadow-sm hover-scale">
+                            <div class="flex items-center mb-4">
+                                <div class="learning-icon-bg p-3 rounded-full mr-3">
+                                    <i class="fa fa-heartbeat learning-icon"></i>
+                                </div>
+                                <h4 class="font-bold">藥理學</h4>
+                            </div>
+                            <p class="text-sm">
+                                研究藥物如何在人體內發揮作用，幫助人們戰勝疾病。
+                            </p>
+                        </div>
+                        <div class="learning-card p-4 rounded-2xl shadow-sm hover-scale">
+                            <div class="flex items-center mb-4">
+                                <div class="learning-icon-bg p-3 rounded-full mr-3">
+                                    <i class="fa fa-balance-scale learning-icon"></i>
+                                </div>
+                                <h4 class="font-bold">藥物分析</h4>
+                            </div>
+                            <p class="text-sm">
+                                學習如何確保藥物的安全和質量，為人類健康保駕護航。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
-    <section class="py-28 bg-white" id="contact">
+    <section class="py-28 bg-gray-50 animate-fadeInUp" id="contact">
         <div class="container mx-auto px-6">
             <div class="text-center mb-18">
                 <h2 class="text-[clamp(2rem,3.5vw,3rem)] font-bold text-primary mb-6">聯繫我</h2>
@@ -729,7 +762,7 @@
             <div class="flex flex-col items-center space-y-6 max-w-md mx-auto">
                 <div class="flex items-center space-x-3">
                     <i class="fa fa-envelope text-accent text-xl"></i>
-                    <span class="text-dark/70 text-lg">電子郵件: <a href="mailto:liming@example.com" class="text-primary hover:underline">liming@example.com</a></span>
+                    <span class="text-dark/70 text-lg">電子郵件: <a href="mailto:issacio188@gmail.com" class="text-primary hover:underline">issacio188@gmail.com</a></span>
                 </div>
                 <div class="flex items-center space-x-3">
                     <i class="fa fa-linkedin text-accent text-xl"></i>
@@ -737,11 +770,11 @@
                 </div>
                 <div class="flex items-center space-x-3">
                     <i class="fa fa-phone text-accent text-xl"></i>
-                    <span class="text-dark/70 text-lg">電話: <a href="tel:+85312345678" class="text-primary hover:underline">+853 1234 5678</a></span>
+                    <span class="text-dark/70 text-lg">電話: <a href="tel:+85366764566" class="text-primary hover:underline">+853 66764566</a></span>
                 </div>
                 <div class="text-center">
                     <p class="text-dark/70 text-lg">所在地: 澳門</p>
-                    <p class="text-dark/70 text-lg">職業: 澳門聖若瑟教區中學第五校學生，藥學專業申請者</p>
+                    <p class="text-dark/70 text-lg">澳門聖若瑟教區中學第五校學生</p>
                 </div>
             </div>
         </div>
@@ -810,10 +843,14 @@
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
     </script>
-</body>
-</html>
-<!-- partial -->
-  
 </body>
 </html>
