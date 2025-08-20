@@ -15,11 +15,11 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1A3C5A',    // Deep blue for professionalism
-                        secondary: '#4A90E2',  // Softer blue for contrast
-                        accent: '#00C4CC',     // Vibrant teal for highlights
-                        dark: '#2A2A2A',       // Near-black for text
-                        light: '#F9FAFB',      // Soft light background
+                        primary: '#1A3C5A', // Deep blue for professionalism
+                        secondary: '#4A90E2', // Softer blue for contrast
+                        accent: '#00C4CC', // Vibrant teal for highlights
+                        dark: '#2A2A2A', // Near-black for text
+                        light: '#F9FAFB', // Soft light background
                         darkModeBg: '#1F2A44', // Dark mode background
                         darkModeText: '#FFFFFF', // Dark mode text (改為白色)
                     },
@@ -107,7 +107,6 @@
 <body class="font-noto bg-light text-dark antialiased transition-colors duration-300">
     <!-- Progress Bar -->
     <div id="progress-bar" class="progress-bar"></div>
-
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-primary shadow-md transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-5 flex justify-between items-center">
@@ -148,7 +147,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <header class="relative h-[90vh] flex items-center bg-gradient-blue from-primary to-dark overflow-hidden" id="home">
         <div class="absolute inset-0 overflow-hidden">
@@ -181,7 +179,6 @@
             </a>
         </div>
     </header>
-
     <!-- Image Modal -->
     <div id="image-modal" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center">
         <div class="relative max-w-4xl w-full">
@@ -191,7 +188,6 @@
             </button>
         </div>
     </div>
-
     <!-- About Me -->
     <section class="py-28 bg-white animate-fadeInUp" id="about">
         <div class="container mx-auto px-6">
@@ -264,7 +260,6 @@
             </div>
         </div>
     </section>
-
     <!-- Achievements and Experiences -->
     <section class="py-28 bg-gray-50 animate-fadeInUp" id="achievements">
         <div class="container mx-auto px-6">
@@ -431,7 +426,6 @@
             </div>
         </div>
     </section>
-
     <!-- Awards and Certificates -->
     <section class="py-28 bg-white animate-fadeInUp" id="awards">
         <div class="container mx-auto px-6">
@@ -612,7 +606,6 @@
             </div>
         </div>
     </section>
-
     <!-- Ability Certificates -->
     <section class="py-28 bg-gray-50 animate-fadeInUp" id="certificates">
         <div class="container mx-auto px-6">
@@ -672,7 +665,6 @@
             </div>
         </div>
     </section>
-
     <!-- Camps Certificates -->
     <section class="py-28 bg-white animate-fadeInUp" id="camps">
         <div class="container mx-auto px-6">
@@ -717,7 +709,6 @@
             </div>
         </div>
     </section>
-
     <!-- Skills and Interests -->
     <section class="py-28 bg-white animate-fadeInUp" id="skills">
         <div class="container mx-auto px-6">
@@ -815,7 +806,6 @@
             </div>
         </div>
     </section>
-
     <!-- Contact -->
     <section class="py-28 bg-gray-50 animate-fadeInUp" id="contact">
         <div class="container mx-auto px-6">
@@ -846,12 +836,14 @@
             </div>
         </div>
     </section>
-
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg hover:bg-primary/90 transition-all-300 hidden">
         <i class="fa fa-arrow-up text-xl"></i>
     </button>
-
+    <!-- Floating Contact Ball -->
+    <div id="floating-contact" class="fixed bottom-24 right-8 bg-accent text-white font-bold py-4 px-6 rounded-full shadow-lg cursor-pointer hover:bg-accent/90 transition-all-300 animate-float">
+        馬上聯絡！
+    </div>
     <!-- JavaScript for Interactivity -->
     <script>
         // Mobile Menu Toggle
@@ -859,7 +851,6 @@
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
         });
-
         // Image Modal
         document.querySelectorAll('[data-modal-target="image-modal"]').forEach(img => {
             img.addEventListener('click', () => {
@@ -869,11 +860,18 @@
                 modal.classList.remove('hidden');
             });
         });
-
         document.getElementById('close-modal').addEventListener('click', () => {
             document.getElementById('image-modal').classList.add('hidden');
         });
-
+        // ESC key to close modal
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('image-modal');
+                if (!modal.classList.contains('hidden')) {
+                    modal.classList.add('hidden');
+                }
+            }
+        });
         // Dark Mode Toggle
         const toggleTheme = () => {
             document.body.classList.toggle('dark');
@@ -886,17 +884,14 @@
             mobileIcon.classList.toggle('fa-moon-o', !isDark);
             mobileIcon.classList.toggle('fa-sun-o', isDark);
         };
-
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
-
         // Load theme from localStorage
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark');
             document.querySelector('#theme-toggle i').classList.replace('fa-moon-o', 'fa-sun-o');
             document.querySelector('#mobile-theme-toggle i').classList.replace('fa-moon-o', 'fa-sun-o');
         }
-
         // Back to Top Button
         const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
@@ -906,17 +901,20 @@
                 backToTop.classList.add('hidden');
             }
         });
-
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
         // Progress Bar
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+        // Floating Contact Ball
+        const floatingContact = document.getElementById('floating-contact');
+        floatingContact.addEventListener('click', () => {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
